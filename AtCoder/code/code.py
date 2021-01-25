@@ -7,21 +7,19 @@ _INPUT = """\
 """
 sys.stdin = io.StringIO(_INPUT)
 
-n,a,b,c,d=map(int,input().split())
-s="0"+input()
-x=s[a:c+1]
-y=s[b:d+1]
-if "##" in s[a:c+1]:
-    print("No")
-    exit()
- 
-if "##" in s[b:d+1]:
-    print("No")
-    exit()
- 
-if c>d:
-    if not "..." in s[b-1:d+2]:
-        print("No")
-        exit()
-    
-print("Yes")
+import sys
+input = sys.stdin.readline
+
+N, A, B, C, D = map(int, input().split())
+S = input().rstrip()
+
+ans = "No"
+if D > C:
+    if "##" not in S[A:D]:
+        ans = "Yes"
+else:
+    for i in range(B-1, D):
+        if S[i-1] == "." and S[i] == "." and S[i+1] == ".":
+            ans = "Yes"
+print(ans)
+
