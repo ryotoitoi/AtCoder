@@ -29,3 +29,4 @@ if a[-1]!=b[-1]:
       sum+=y
 print(sum)
 
+print("do it!!")
