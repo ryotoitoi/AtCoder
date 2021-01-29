@@ -19,4 +19,5 @@ for i in range(len(p)):
 print(l)
 
 for i in range(len(l)):
-    if 
+    if i =='○' and i+1 == '×':
+        
