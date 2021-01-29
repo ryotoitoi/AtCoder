@@ -2,22 +2,41 @@ import io
 import sys
 
 _INPUT = """\
-5
-1 4 3 5 2
+a
+6
+2 2 a
+2 1 b
+1
+2 2 c
+1
+1
+
 """
 sys.stdin = io.StringIO(_INPUT)
 
-n=int(input())
-p=list(map(int,input().split()))
+from collections import deque
+s=deque(input())
+q=int(input())
+l=[list(map(str,input().split())) for i in range(q)]
 
-l=[]
-for i in range(len(p)):
-    if p[i] != i+1:
-        l.append("○")
+cnt=0
+
+for i in l:
+    if i[0]=='1':
+        cnt+=1
     else:
-        l.append("×")
-print(l)
+        if cnt%2==0:
+            if i[1]=='1':
+                s.appendleft(i[2])
+            else:
+                s.append(i[2])
+        else:
+            if i[1]=='1':
+                s.append(i[2])
+            else:
+                s.appendleft(i[2])
 
-for i in range(len(l)):
-    if i =='○' and i+1 == '×':
-        
+if cnt%2==1:
+    s.reverse()
+ans=''.join(s)
+print(ans)
