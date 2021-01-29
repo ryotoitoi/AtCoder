@@ -1,2 +1,3 @@
-f = open('text.txt', 'r')
-print(f)
+with open('./text.txt', 'r') as f:
+    for s_line in f:
+        print(s_line)
