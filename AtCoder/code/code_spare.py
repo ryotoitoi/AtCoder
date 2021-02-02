@@ -2,28 +2,15 @@ import io
 import sys
 
 _INPUT = """\
-5
-OR
-OR
-OR
-OR
-OR
+963761198400
 """
 sys.stdin = io.StringIO(_INPUT)
 
 n=int(input())
-s=[input() for i in range(n)]
+cnt=0
+for i in range(n+1):
+      for j in range(n+1):
+            if (1/2)*(j-i+1)*(i+j)==n:
+                  cnt+=1
+1
 
-ans=1
-cnt=1
-lst=[]
-
-for i in s:
-      if i =="OR":
-            cnt+=1
-            t=2*cnt-1
-            f=1
-      else:
-            t=2**cnt-1
-            cnt=1
-            lst.append(t)
