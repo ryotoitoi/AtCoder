@@ -2,47 +2,30 @@ import io
 import sys
 
 _INPUT = """\
-4 4
-1 2
-1 3
-2 4
-3 4
-4
-3 4
-1 2
-2 4
-2 4
+5 4 2
+2 1 1
+3 3 4
 
 
 """
 sys.stdin = io.StringIO(_INPUT)
 
-n,m=map(int,input().split())
-ab=[list(map(int,input().split())) for i in range(m)]
-k=int(input())
-cd=[list(map(int,input().split())) for i in range(k)]
+W,H,N = map(int,input().split())
+a = [input().split() for l in range(N)]
+ 
+X = Y = 0
+ 
+for i in range(N):
+  if a[i][2] == "1":
+    X = max(X,int(a[i][0]))
+    
+  elif a[i][2] == "2":
+    W = min(W,int(a[i][0]))
+    
+  elif a[i][2] == "3":
+    Y = max(Y,int(a[i][1]))
+    
+  elif a[i][2] == "4":
+    H = min(H,int(a[i][1]))
 
-lst=[]
-for i in cd:
-    if i[0] not in lst:
-        lst.append(i[0])
-    else:
-        lst.append(i[1])
 
-lst_1=[]
-for i in cd:
-    if i[1] not in lst_1:
-        lst_1.append(i[1])
-    else:
-        lst_1.append(i[0])
-
-cnt=0
-for i in ab:
-    if i[0] in lst and i[1] in lst:
-        cnt+=1
-cnt1=0
-for i in ab:
-    if i[0] in lst_1 and i[1] in lst_1:
-        cnt1+=1
-
-print(max(cnt,cnt1))
