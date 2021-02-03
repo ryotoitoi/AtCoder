@@ -28,4 +28,4 @@ for i in range(N):
   elif a[i][2] == "4":
     H = min(H,int(a[i][1]))
 
-
+print(max((W - X),0) * max((H - Y),0))
