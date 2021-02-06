@@ -13,4 +13,5 @@ list(map(int,input().split()))
 # 複数行・1列
 [int(input()) for i in range(n)]
 
-
+# タプルで入力　入力のままペアで使いたいとき
+cond = [tuple(map(int,input().split())) for i in range(ｎｎ)]
