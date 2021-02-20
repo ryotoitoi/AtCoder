@@ -2,27 +2,31 @@ import io
 import sys
 
 _INPUT = """\
-7
-3 1
-4 1
-5 9
-2 6
-5 3
-5 8
-9 7
+6174 100000
 
 """
 sys.stdin = io.StringIO(_INPUT)
 
-N=int(input())
-S=0
-L=[]
-for i in range(0,N):
-  A,B=map(int,input().split())
-  L+=[[A,B]]
-for X in reversed(L):
-  A=X[0]
-  B=X[1]
-  if (A+S)%B!=0:
-    S+=((A+S)//B+1)*B-A-S
-print(S)
+n,k = list(map(int,input().split()))
+
+for i in range(k):
+  n = str(n)
+  n = list(n)
+  # print(n)
+  n = sorted(n)
+  nn = reversed(n)
+  # print(nn)
+  g_1 = ''.join(nn)
+  g_2 = ''.join(n)
+  # print(g_1)
+  # print(g_2)
+  if '0' in str(g_2):
+    g_2 = g_2.replace('0','')
+  fx = int(g_1) - int(g_2)
+  if fx ==0:
+        n = fx
+        break
+  n = fx
+  # print(fx)
+
+print(n)
